@@ -6,7 +6,7 @@ module.exports = {
     entry: path.resolve(__dirname, 'src', 'index.js'),
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'index.html'),
+            template: path.resolve(__dirname, 'src', 'index.html'),
             title: 'Development',
         }),
     ],
@@ -24,6 +24,14 @@ module.exports = {
             {
                 test: /\.html$/i,
                 loader: "html-loader",
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader",
+                ],
             },
         ],
     },
