@@ -1,5 +1,6 @@
 import './index.html'
 import './style.sass'
+import './maskPhone'
 
 const sum = (a,b) => a + b
 
