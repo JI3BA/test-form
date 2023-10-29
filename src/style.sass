@@ -1,0 +1,97 @@
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+
+.container
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.wrapper
+  max-width: 1440px
+  width: 100%
+  display: flex
+  justify-content: center
+
+h1
+  color: #000000
+
+.my-data
+  display: flex
+  margin: 20px 0 21px 0
+
+  &__wrap
+    max-width: 100%
+    width: 100%
+    height: 55px
+    border-radius: 2px
+    border: 1px solid #000
+    background: rgba(196, 196, 196, 0.00)
+
+    &--textarea
+      width: 585px
+      height: 190px
+
+  &--invalid
+    border: 1px solid #d60000
+
+  &__title
+    color: #000
+    font-size: 12px
+    font-style: normal
+    font-weight: 500
+    line-height: normal
+    margin-left: 12px
+    padding: 0 8px
+
+    &--invalid
+      color: #d60000
+
+  &__input
+    width: 100%
+    height: 95%
+    border: transparent
+    outline: none
+    padding: 5px 20px 14px 20px
+    color: #000
+    font-size: 18px
+    font-style: normal
+    font-weight: 500
+    line-height: 24px
+
+  &__textarea
+    resize: none
+    width: 100%
+    height: 100%
+    border: none
+    outline: none
+    padding: 0 20px
+    font-size: 18px
+    line-height: 24px
+
+
+.form
+  &__title
+    text-align: center
+
+  &__button
+    padding: 10px 15px
+    background: transparent
+    color: #000000
+    border: 1px solid #0b0d41
+    margin-top: 24px
+    cursor: pointer
+    transform: scale(1)
+    transition: background .5s, color .5s, transform .5s
+
+    &:hover
+      background: #0b0d41
+      color: #ffffff
+
+    &:active
+      transform: scale(.95)
+
+    &:disabled
+      opacity: .5
