@@ -11,4 +11,5 @@ console.log(sum(1,3))
 document.querySelector('.modal__button').addEventListener('click', () => {
     document.querySelector('.modal').classList.add('modal--active')
     document.querySelector('.modal__container').classList.add('modal__container--active')
+    document.querySelector('body').classList.add('modal__open')
 })
