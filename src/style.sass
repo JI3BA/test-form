@@ -37,8 +37,8 @@
       width: 585px
       height: 190px
 
-  &--invalid
-    border: 1px solid #d60000
+    &--invalid
+      border: 3px solid #d60000
 
   &__title
     color: #000
@@ -98,6 +98,10 @@
 
     &:disabled
       opacity: .5
+      cursor: default
+      transform: scale(1)
+      background: transparent
+      color: #000000
 
 .modal
   visibility: hidden
@@ -112,9 +116,11 @@
     height: 100%
     cursor: pointer
     background: transparent
-    transition: background .5s ease-in
+    backdrop-filter: blur(0)
+    transition: background .5s, backdrop-filter .3s
     &--active
       background: rgba(0,0,0,.8)
+      backdrop-filter: blur(2px)
 
   &--active
     visibility: visible
