@@ -1,6 +1,3 @@
-
-
-
 export const openModalWindow = () => {
     document.querySelector('.modal__overlay').classList.add('modal__overlay--active')
     document.querySelector('.modal').classList.add('modal--active')
