@@ -2,19 +2,19 @@
 function validationForm(form){
     let result = true
     let amountValue = 0
-    const fieldSet = document.querySelectorAll('.my-data__wrap')
-    const legend = document.querySelectorAll('.my-data__title')
+    const fieldSet = document.querySelectorAll('.form__wrap')
+    const legend = document.querySelectorAll('.form__title')
 
-    form.querySelectorAll('.my-data__input').forEach(input => {
+    form.querySelectorAll('.form__input').forEach(input => {
         if(input.value.trim() === ''){
             result = false
-            fieldSet.forEach(item => item.classList.add('my-data__wrap--invalid'))
-            legend.forEach(item => item.classList.add('my-data__title--invalid'))
+            fieldSet.forEach(item => item.classList.add('form__wrap--invalid'))
+            legend.forEach(item => item.classList.add('form__title--invalid'))
             input.setAttribute('required', 'required')
             document.querySelector('.form__button').setAttribute('disabled', 'disabled')
         }else{
-            fieldSet.forEach(item => item.classList.remove('my-data__wrap--invalid'))
-            legend.forEach(item => item.classList.remove('my-data__title--invalid'))
+            fieldSet.forEach(item => item.classList.remove('form__wrap--invalid'))
+            legend.forEach(item => item.classList.remove('form__title--invalid'))
             input.removeAttribute('required')
             document.querySelector('.form__button').removeAttribute('disabled')
             result = true
@@ -23,7 +23,7 @@ function validationForm(form){
     })
 
     if(amountValue === 3){
-        form.querySelectorAll('.my-data__input').forEach(input => {
+        form.querySelectorAll('.form__input').forEach(input => {
             input.value = ''
         })
         return result
