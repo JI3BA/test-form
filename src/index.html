@@ -15,24 +15,24 @@
                 <form action="" class="form">
                     <h1 class="form__name">Validation Form</h1>
 
-                    <fieldset class="form__wrap">
-                        <legend class="form__title">Ваше имя</legend>
-                        <input type="text" class="form__input name" value="" minlength="6">
+                    <fieldset class="form__wrap form__wrap--name">
+                        <legend class="form__title form__title--name">Ваше имя</legend>
+                        <input type="text" name="name" class="form__input name" value="">
                     </fieldset>
 
-                    <fieldset class="form__wrap">
-                        <legend class="form__title">Email</legend>
-                        <input type="text" class="form__input mail" value="" minlength="6">
+                    <fieldset class="form__wrap form__wrap--mail">
+                        <legend class="form__title form__title--mail">Email</legend>
+                        <input type="text" name="mail" class="form__input mail" value="">
                     </fieldset>
 
-                    <fieldset class="form__wrap">
-                        <legend class="form__title">Телефон</legend>
-                        <input type="text" class="form__input phone" placeholder="+375 (00) 000-00-00" value="" minlength="20">
+                    <fieldset class="form__wrap form__wrap--phone">
+                        <legend class="form__title form__title--phone">Телефон</legend>
+                        <input type="text" name="phone" class="form__input phone" placeholder="+375 (00) 000-00-00" value="">
                     </fieldset>
 
                     <fieldset class="form__wrap form__wrap--textarea">
                         <legend class="form__title">Ваше Сообщение</legend>
-                        <textarea class="form__textarea" minlength="20"></textarea>
+                        <textarea class="form__textarea"></textarea>
                     </fieldset>
 
                     <button class="form__button">Отправить сообщение</button>
