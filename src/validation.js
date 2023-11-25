@@ -1,44 +1,49 @@
-function validLogic(input){
-    result = false
-    document.querySelector(`.form__wrap--${input.name}`).classList.add('form__wrap--invalid')
-    document.querySelector(`.form__title--${input.name}`).classList.add('form__title--invalid')
-    input.setAttribute('required', 'required')
-    document.querySelector('.form__button').setAttribute('disabled', 'disabled')
+function invalidLogic(name){
+    document.querySelector(`.form__wrap--${name}`).classList.add('form__wrap--invalid')
+    document.querySelector(`.form__title--${name}`).classList.add('form__title--invalid')
 }
 
-function invalidLogic(input){
-    document.querySelector(`.form__wrap--${input.name}`).classList.remove('form__wrap--invalid')
-    document.querySelector(`.form__title--${input.name}`).classList.remove('form__title--invalid')
-    input.removeAttribute('required')
-    document.querySelector('.form__button').removeAttribute('disabled')
-    result = true
-    amountValue += 1
+function validLogic(name){
+    document.querySelector(`.form__wrap--${name}`).classList.remove('form__wrap--invalid')
+    document.querySelector(`.form__title--${name}`).classList.remove('form__title--invalid')
 }
 
-
+document.querySelector('.name').addEventListener('blur', () => validationForm(document))
+document.querySelector('.mail').addEventListener('blur', () => validationForm(document))
+document.querySelector('.phone').addEventListener('blur', () => validationForm(document))
 
 function validationForm(form){
     let result = true
     let amountValue = 0
+    const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
     form.querySelectorAll('.form__input').forEach(input => {
-        console.log(input.name)
+        if((input.name === 'name' && input.value.trim() === '') ||
+            (input.name ==='mail' && !EMAIL_REGEXP.test(input.value.trim())) ||
+                (input.name === 'phone' && input.value.length < 19)){
+            invalidLogic(input.name)
+            amountValue = 0
+        }else{
+            validLogic(input.name)
+            amountValue += 1
+        }
     })
 
     if(amountValue === 3){
-        form.querySelectorAll('.form__input').forEach(input => {
-            input.value = ''
-        })
+        document.querySelector('.form__button').removeAttribute('disabled')
         return result
     }
+    document.querySelector('.form__button').setAttribute('disabled', 'disabled')
 }
-
-const phone = document.querySelector('.phone')
-
-phone.addEventListener('blur', () => validationForm(document))
 
 document.querySelector('.form__button').addEventListener('click', function(e){
     e.preventDefault()
+
+    document.querySelectorAll('.form__input').forEach(input => {
+        document.querySelector(`.form__wrap--${input.name}`).classList.remove('form__wrap--invalid')
+        document.querySelector(`.form__title--${input.name}`).classList.remove('form__title--invalid')
+        input.value = ''
+    })
 
     if(validationForm(document) === true){
         alert('Данные отправлены')
