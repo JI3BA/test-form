@@ -39,13 +39,14 @@ function validationForm(form){
 document.querySelector('.form__button').addEventListener('click', function(e){
     e.preventDefault()
 
-    document.querySelectorAll('.form__input').forEach(input => {
-        document.querySelector(`.form__wrap--${input.name}`).classList.remove('form__wrap--invalid')
-        document.querySelector(`.form__title--${input.name}`).classList.remove('form__title--invalid')
-        input.value = ''
-    })
-
     if(validationForm(document) === true){
         alert('Данные отправлены')
+
+        document.querySelectorAll('.form__input').forEach(input => {
+            document.querySelector(`.form__wrap--${input.name}`).classList.remove('form__wrap--invalid')
+            document.querySelector(`.form__title--${input.name}`).classList.remove('form__title--invalid')
+            input.value = ''
+        })
+        document.querySelector('.form__button').removeAttribute('disabled')
     }
 })
