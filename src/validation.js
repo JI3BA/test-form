@@ -1,3 +1,5 @@
+import {postData} from "./AjaxRequest";
+
 function invalidLogic(name){
     document.querySelector(`.form__wrap--${name}`).classList.add('form__wrap--invalid')
     document.querySelector(`.form__title--${name}`).classList.add('form__title--invalid')
@@ -37,6 +39,13 @@ function validationForm(form){
 }
 
 document.querySelector('.form__button').addEventListener('click', function(e){
+    const data = {
+        name: document.querySelector('.name').value,
+        email: document.querySelector('.mail').value,
+        phone: document.querySelector('.phone').value,
+        message: document.querySelector('.message').value
+    }
+
     e.preventDefault()
 
     if(validationForm(document) === true){
@@ -48,5 +57,18 @@ document.querySelector('.form__button').addEventListener('click', function(e){
             input.value = ''
         })
         document.querySelector('.form__button').removeAttribute('disabled')
+
+        // AjaxRequest(document.querySelector('.name').value,
+        //     document.querySelector('.mail').value,
+        //     document.querySelector('.phone').value,
+        //     document.querySelector('.message').value)
+
+        postData('/api/save-data', data)
+            .then(response => {
+                console.log('Данные успешно сохранены:', response);
+            })
+            .catch(error => {
+                console.error('Ошибка при сохранении данных:', error);
+            });
     }
 })
