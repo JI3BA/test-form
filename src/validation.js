@@ -57,18 +57,5 @@ document.querySelector('.form__button').addEventListener('click', function(e){
             input.value = ''
         })
         document.querySelector('.form__button').removeAttribute('disabled')
-
-        // AjaxRequest(document.querySelector('.name').value,
-        //     document.querySelector('.mail').value,
-        //     document.querySelector('.phone').value,
-        //     document.querySelector('.message').value)
-
-        postData('/api/save-data', data)
-            .then(response => {
-                console.log('Данные успешно сохранены:', response);
-            })
-            .catch(error => {
-                console.error('Ошибка при сохранении данных:', error);
-            });
     }
 })
